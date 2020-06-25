@@ -1,17 +1,17 @@
-JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.6" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.7" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space :p:161:p, comp button2:::p::p, space ::195:x, comp button1:::p::p, space :p:138:p}, seq t {space ::265:x, comp label_cadastro_frete:::p::p, space :p:233:p}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp label_cadastro_frete:::p::p, space ::174:x, par b {comp button2::b:p::p, comp button1::b:p::p}, space :p:31:p}}"
+			"$horizontalGroup": "par l {seq l {space :p:59:p, comp cancelar:::p::p, space :p:148:p, comp cadastrar:::p::p}, seq {space :p:15:p, par t:::p {comp informacoes_basicas_frete::l:p::p, seq l {comp frete_regular:::p::p, space :::p, comp frete_demanda:::p::p}}, space :p:761:p, comp panel1:::p::p}, seq l {space :p:171:p, comp label_cadastro_frete:::p::p}}"
+			"$verticalGroup": "par l {seq l {par l {seq {space :p:53:p, comp panel1:::::x}, seq {space :p:12:p, comp label_cadastro_frete:::p::p, space :::p, comp informacoes_basicas_frete:::p::p, space :::p, par l {comp frete_regular:::::x, comp frete_demanda:::::x}}}, space :p::p, par b {comp cancelar::b:p::p, comp cadastrar::b:p::p}, space :p:31:p}}"
 		} ) {
 			name: "cadastrar_frete_tela"
 			"title": "Cadastrar Frete"
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label_cadastro_frete"
-				"text": "Cadastrar Produto"
+				"text": "Cadastrar Frete"
 				"alignmentY": 0.0f
 				"horizontalTextPosition": 0
 				"focusable": false
@@ -25,16 +25,115 @@ new FormModel {
 				"font": new java.awt.Font( "Segoe UI", 0, 20 )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button1"
-				"text": "Cadastrar"
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button2"
+				name: "cancelar"
 				"text": "Cancelar"
 			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {space :0:204:x}"
+				"$verticalGroup": "par l {space :0:453:x}"
+			} ) {
+				name: "panel1"
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {space :::p, par l {seq {space :6:6:p, comp frequencia_operacoes:::p:132:p}, par l:::p {comp label9::l:p::p, comp label10:::p::p, seq {space :6:6:p, par l {comp list_unidades_operacoes:::p::p, comp quantidade_operacoes:::::x}}, par t:l {comp label13:::p::p, comp label6:::p::p}}}, space ::72:x}}"
+				"$verticalGroup": "par l {seq l {space :p:20:p, comp label13:::p::p, space :p:47:p, comp label6:::p::p, space :p:5:p, comp quantidade_operacoes:::p::p, space s:::p, comp label9:::p::p, space u:::p, comp frequencia_operacoes:::p::p, space :p:4:p, comp label10:::p::p, space :::p, comp list_unidades_operacoes:::p::p, space ::28:x}}"
+			} ) {
+				name: "frete_regular"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label6"
+					"text": "Quantidade Operacoes"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label9"
+					"text": "Frequencia das Operacoes"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label10"
+					"text": "Unidade das Operacoes"
+				} )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "list_unidades_operacoes"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label13"
+					"text": "Frete Regular"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "quantidade_operacoes"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "frequencia_operacoes"
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {par l {seq l {space :p:28:p, par l {comp label1:::p::p, comp list_tipos_de_fretes:::p::p}, space :p:26:p, par l {comp label3:::p::p, comp cidade_destino::l:p:132:p, seq {par l {comp cidade_postagem::l:p:132:p, comp label2::l:p::p}, space s:::p, par l {comp label7:::p::p, comp distancia_em_km:::p:132:p}}}}, seq l {space :p:170:p, comp label5:::p::p}}, space ::16:x}}"
+				"$verticalGroup": "par l {seq {space :::p, comp label5:::p::p, space :p:5:p, par l {seq {par t {seq {comp label2:::p::p, space u:::p, comp cidade_postagem:::p::p}, seq {comp label7:::p::p, space u:::p, comp distancia_em_km:::p::p}}, space ::17:x, comp label3:::p::p, space :::p, comp cidade_destino:::p::p}, seq {comp label1:::p::p, space u:::p, comp list_tipos_de_fretes:::p::p}}, space :p:7:p}}"
+			} ) {
+				name: "informacoes_basicas_frete"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "Tipo de Frete"
+				} )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "list_tipos_de_fretes"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "Cidade de Origem"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": "Cidade de Destino"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label7"
+					"text": "Distancia em KM"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "cidade_destino"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "cidade_postagem"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "distancia_em_km"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label5"
+					"text": "Campos Basicos"
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {space :p:34:p, par l {comp label11:::p:132:p, comp previsao_entrega::l:p:132:p, comp data_postagem::l:p:132:p, par t:l {comp label12:::p::p, comp label8:::p:102:p}}, space ::43:x}}"
+				"$verticalGroup": "par l {seq l {space :p:16:p, comp label12:::p::p, space :p:43:p, comp label8:::p::p, space :::p, comp data_postagem:::p::p, space s:::p, comp label11:::p::p, space u:::p, comp previsao_entrega:::p::p, space ::91:x}}"
+			} ) {
+				name: "frete_demanda"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label8"
+					"text": "Data Postagem"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label11"
+					"text": "Previsao de Entrega"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label12"
+					"text": "Frete Demanda"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "data_postagem"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "previsao_entrega"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "cadastrar"
+				"text": "Cadastrar"
+			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 355, 15 )
-			"size": new java.awt.Dimension( 660, 300 )
+			"location": new java.awt.Point( 80, 0 )
+			"size": new java.awt.Dimension( 460, 605 )
 		} )
 	}
 }

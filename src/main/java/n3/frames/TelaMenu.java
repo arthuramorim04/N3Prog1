@@ -59,7 +59,7 @@ public class TelaMenu {
             cad_frete.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     cadastrarFrete.getCadastrar_frete_tela().setVisible(true);
-                    cadastrarFrete.getCadastrar_frete_tela().setSize(660,300);
+                    cadastrarFrete.getCadastrar_frete_tela().setSize(460,600);
                 }
             });
 

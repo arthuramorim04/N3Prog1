@@ -4,45 +4,90 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :p:171:p, comp textField1:::p::p, space ::197:x}, seq {space ::46:x, par t {comp textField5:::p:296:p, comp textField7:::p:296:p, comp textField2::t:p:296:p, comp textField3::t:p:296:p, comp textField6::t:p:296:p}, space ::171:x}, seq l {space :p:54:p, comp button1:::p:139:p, space ::116:x, comp button2:::p:139:p, space :p:65:p}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp textField1:::p::p, space :::p, comp textField2:::p:21:p, space :::p, comp textField3:::p:21:p, space :::p, comp textField7:::p:21:p, space :::p, comp textField6:::p:21:p, space :::p, comp textField5:::p:21:p, space ::92:x, par b {comp button1::b:p::p, comp button2::b:p::p}, space :p:15:p}}"
+			"$horizontalGroup": "par l {seq l {space :p:140:p, par t {comp label2:::p:118:p, comp textField1:::p::p}, space :::x}, seq t {space :::x, comp label8:::p:163:p, space :p:123:p}, seq l {space :p:54:p, par l {seq {par l {seq {comp button1:::p:139:p, space :::x, comp button2:::p:139:p}, seq {par l {comp comboBox1:::::x, seq t {space :0:0:x, comp label1:::p:100:p}}, space u:::p, par l:::p {seq {comp label3:::p::p, space :p:31:p}, seq {comp textField2:::::x, space :p:25:p}}, par l:::p {comp label4::::77:x, comp textField3:::::x}, space :p:12:p}}, space :p:65:p}, seq {comp label9:::p:150:p, space :0:0:x}, seq t {par t {seq {comp textField7:::p:150:p, space :::x, comp textField8:::p:150:p}, seq {space :0:0:x, comp label10:::p:150:p}, seq l {comp label5:::p:50:p, space u:::p, comp label6:::p:50:p, space :::p, comp label7:::::x}, seq l {comp textField4:::p:50:p, space u:::p, comp textField5:::p:50:p, space :::p, comp textField6:::p:218:p, space :0:0:x}}, space :p:64:p}}}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp textField1:::p::p, space :::p, comp label2:::p::p, space :p:14:p, par b {comp label4::b:p::p, comp label3::b:p::p, comp label1::b:p::p}, space :p:6:p, par b {comp comboBox1::b:p::p, comp textField2::b:p::p, comp textField3::b:p::p}, space :p:29:p, par b {comp label5::b:p::p, comp label6::b:p::p, comp label7::b:p::p}, space :::p, par b {comp textField4::b:p::p, comp textField5::b:p::p, comp textField6::b:p::p}, space :p:42:p, comp label8:::p::p, space ::30:x, par b {comp label9::b:p::p, comp label10::b:p::p}, space u:::p, par b {comp textField7::b:p::p, comp textField8::b:p::p}, space :p:47:p, par b {comp button1::b:p::p, comp button2::b:p::p}, space :p:15:p}}"
 		} ) {
 			name: "cadastro_produto"
+			"title": "Cadastro de Mercadoria"
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Cancela"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
-				"text": "Salvar"
+				"text": "Cadastrar"
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
 				"text": "Cadastro de Mercadoria"
 			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Auditado"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Campos Básicos"
+			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField2"
-				"text": "Descrição"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Tipo da Mercadoria"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Nota Fiscal"
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField3"
-				"text": "Tipo"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "Peso"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField4"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "Id"
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField5"
-				"text": "Data Inspeção"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "Descrição"
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField6"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label8"
+				"text": "Campos para Auditoria"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label9"
 				"text": "Orgão Inspetor"
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField7"
-				"text": "Peso"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label10"
+				"text": "Data da Inspeção"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField8"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 30, 15 )
-			"size": new java.awt.Dimension( 515, 340 )
+			"location": new java.awt.Point( 32, 0 )
+			"size": new java.awt.Dimension( 443, 475 )
 		} )
 	}
 }
