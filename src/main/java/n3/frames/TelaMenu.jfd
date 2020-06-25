@@ -1,0 +1,51 @@
+JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:32:p, par l:::p {seq {comp cad_produto:::p:169:p, space u:::p, comp cad_frete:::p:178:p}, comp vincular_prod_frete:::::x}, space :p:31:p, par l:::p {comp lista_fretes:::::x, comp lista_produtos:::p:201:p}, space ::35:x}, seq t {space ::256:x, comp label_menu_principal:::::p, space :p:231:p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label_menu_principal:::p::p, space u:::p, par t {seq {par b {comp cad_frete::b:p:71:p, comp cad_produto::b:p:71:p}, space :::p, comp vincular_prod_frete:::p:71:p}, seq {comp lista_produtos:::p:71:p, space :::p, comp lista_fretes:::p:71:p}}, space ::31:x}}"
+		} ) {
+			name: "menuPrincipal"
+			"font": new java.awt.Font( "Dialog", 0, 30 )
+			"background": sfield java.awt.Color lightGray
+			"title": "N3 -"
+			"focusableWindowState": false
+			"focusable": false
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label_menu_principal"
+				"text": "Menu Principal"
+				"font": new java.awt.Font( "Segoe UI", 0, 26 )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "cad_produto"
+				"text": "Cadastrar Produto"
+				"foreground": &Color0 new java.awt.Color( 0, 0, 0, 255 )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "cad_frete"
+				"text": "Cadastrar Frete"
+				"foreground": #Color0
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "vincular_prod_frete"
+				"text": "Vincular produto ao frete"
+				"foreground": #Color0
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "lista_produtos"
+				"text": "Listar Produtos"
+				"foreground": #Color0
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "lista_fretes"
+				"text": "Listar Fretes"
+				"foreground": #Color0
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 125, 15 )
+			"size": new java.awt.Dimension( 660, 265 )
+		} )
+	}
+}
