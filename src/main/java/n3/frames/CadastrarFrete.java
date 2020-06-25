@@ -50,11 +50,13 @@ public class CadastrarFrete {
         previsao_entrega = new JTextField();
         cadastrar = new JButton();
 
+        list_tipos_de_fretes.addItem("demanda");
+        list_tipos_de_fretes.addItem("regular");
+
         list_unidades_operacoes.addItem("D");
         list_unidades_operacoes.addItem("M");
         list_unidades_operacoes.addItem("A");
-        list_tipos_de_fretes.addItem("regular");
-        list_tipos_de_fretes.addItem("demanda");
+
         //======== cadastrar_frete_tela ========
         {
             cadastrar_frete_tela.setTitle("Cadastrar Frete");
@@ -79,12 +81,11 @@ public class CadastrarFrete {
 
             //======== panel1 ========
             {
-                panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border
-                . EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax
-                . swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,
-                12 ), java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans
-                . PropertyChangeListener( ){ public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .
-                getPropertyName () )) throw new RuntimeException( ); }} );
+                panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
+                0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
+                . BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
+                red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ public void propertyChange (java .
+                beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
 
                 GroupLayout panel1Layout = new GroupLayout(panel1);
                 panel1.setLayout(panel1Layout);
@@ -249,25 +250,22 @@ public class CadastrarFrete {
                 frete_demandaLayout.setHorizontalGroup(
                     frete_demandaLayout.createParallelGroup()
                         .add(frete_demandaLayout.createSequentialGroup()
+                            .add(34, 34, 34)
                             .add(frete_demandaLayout.createParallelGroup()
-                                .add(frete_demandaLayout.createSequentialGroup()
-                                    .add(34, 34, 34)
-                                    .add(frete_demandaLayout.createParallelGroup()
-                                        .add(label11, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
-                                        .add(label8, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
-                                        .add(previsao_entrega, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
-                                        .add(data_postagem, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)))
-                                .add(frete_demandaLayout.createSequentialGroup()
-                                    .add(64, 64, 64)
-                                    .add(label12)))
+                                .add(label11, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+                                .add(previsao_entrega, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+                                .add(data_postagem, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+                                .add(frete_demandaLayout.createParallelGroup(GroupLayout.TRAILING)
+                                    .add(label12)
+                                    .add(label8, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)))
                             .addContainerGap(43, Short.MAX_VALUE))
                 );
                 frete_demandaLayout.setVerticalGroup(
                     frete_demandaLayout.createParallelGroup()
                         .add(frete_demandaLayout.createSequentialGroup()
-                            .addContainerGap()
+                            .add(16, 16, 16)
                             .add(label12)
-                            .add(53, 53, 53)
+                            .add(43, 43, 43)
                             .add(label8)
                             .addPreferredGap(LayoutStyle.RELATED)
                             .add(data_postagem, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -275,7 +273,7 @@ public class CadastrarFrete {
                             .add(label11)
                             .addPreferredGap(LayoutStyle.UNRELATED)
                             .add(previsao_entrega, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(65, Short.MAX_VALUE))
+                            .addContainerGap(91, Short.MAX_VALUE))
                 );
             }
 
@@ -320,9 +318,7 @@ public class CadastrarFrete {
                                 .addPreferredGap(LayoutStyle.RELATED)
                                 .add(cadastrar_frete_telaContentPaneLayout.createParallelGroup()
                                     .add(frete_regular, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .add(cadastrar_frete_telaContentPaneLayout.createSequentialGroup()
-                                        .add(0, 26, Short.MAX_VALUE)
-                                        .add(frete_demanda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
+                                    .add(frete_demanda, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(LayoutStyle.RELATED)
                         .add(cadastrar_frete_telaContentPaneLayout.createParallelGroup(GroupLayout.BASELINE)
                             .add(cancelar)

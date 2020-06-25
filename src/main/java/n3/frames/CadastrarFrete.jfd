@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 			"$horizontalGroup": "par l {seq l {space :p:59:p, comp cancelar:::p::p, space :p:148:p, comp cadastrar:::p::p}, seq {space :p:15:p, par t:::p {comp informacoes_basicas_frete::l:p::p, seq l {comp frete_regular:::p::p, space :::p, comp frete_demanda:::p::p}}, space :p:761:p, comp panel1:::p::p}, seq l {space :p:171:p, comp label_cadastro_frete:::p::p}}"
-			"$verticalGroup": "par l {seq l {par l {seq {space :p:53:p, comp panel1:::::x}, seq {space :p:12:p, comp label_cadastro_frete:::p::p, space :::p, comp informacoes_basicas_frete:::p::p, space :::p, par l {comp frete_regular:::::x, seq {space :0:26:x, comp frete_demanda:::p::p}}}}, space :p::p, par b {comp cancelar::b:p::p, comp cadastrar::b:p::p}, space :p:31:p}}"
+			"$verticalGroup": "par l {seq l {par l {seq {space :p:53:p, comp panel1:::::x}, seq {space :p:12:p, comp label_cadastro_frete:::p::p, space :::p, comp informacoes_basicas_frete:::p::p, space :::p, par l {comp frete_regular:::::x, comp frete_demanda:::::x}}}, space :p::p, par b {comp cancelar::b:p::p, comp cadastrar::b:p::p}, space :p:31:p}}"
 		} ) {
 			name: "cadastrar_frete_tela"
 			"title": "Cadastrar Frete"
@@ -104,8 +104,8 @@ new FormModel {
 				} )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq {par l {seq {space :p:34:p, par l {comp label11:::p:132:p, comp label8::l:p:102:p, comp previsao_entrega::l:p:132:p, comp data_postagem::l:p:132:p}}, seq l {space :p:64:p, comp label12:::p::p}}, space ::43:x}}"
-				"$verticalGroup": "par l {seq l {space :::p, comp label12:::p::p, space :p:53:p, comp label8:::p::p, space :::p, comp data_postagem:::p::p, space s:::p, comp label11:::p::p, space u:::p, comp previsao_entrega:::p::p, space ::65:x}}"
+				"$horizontalGroup": "par l {seq {space :p:34:p, par l {comp label11:::p:132:p, comp previsao_entrega::l:p:132:p, comp data_postagem::l:p:132:p, par t:l {comp label12:::p::p, comp label8:::p:102:p}}, space ::43:x}}"
+				"$verticalGroup": "par l {seq l {space :p:16:p, comp label12:::p::p, space :p:43:p, comp label8:::p::p, space :::p, comp data_postagem:::p::p, space s:::p, comp label11:::p::p, space u:::p, comp previsao_entrega:::p::p, space ::91:x}}"
 			} ) {
 				name: "frete_demanda"
 				add( new FormComponent( "javax.swing.JLabel" ) {
