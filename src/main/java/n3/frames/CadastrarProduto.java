@@ -20,9 +20,7 @@ public class CadastrarProduto {
     }
 
     private void cadastrarMercadoria(ActionEvent e) {
-        if(getAuditado().getText().equalsIgnoreCase("Não") ||
-                getAuditado().getText().equalsIgnoreCase("") ||
-                getAuditado().getText().equalsIgnoreCase(null)) {
+        if(!(getAuditado().getText().equalsIgnoreCase("sim"))) {
 
             double peso = Double.parseDouble(getPeso().getText());
 
@@ -36,6 +34,10 @@ public class CadastrarProduto {
         }
 
         getCadastro_produto().setTitle(getAuditado().getText());
+    }
+
+    private void botaoCancelar(ActionEvent e) {
+        this.getCadastro_produto().setVisible(false);
     }
 
     private void initComponents() {
@@ -68,6 +70,12 @@ public class CadastrarProduto {
 
             //---- cancelar ----
             cancelar.setText("Cancela");
+            cancelar.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    botaoCancelar(e);
+                }
+            });
 
             //---- cadastrar ----
             cadastrar.setText("Cadastrar");
