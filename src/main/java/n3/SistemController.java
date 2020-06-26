@@ -18,7 +18,8 @@ import java.util.HashMap;
 
 public class SistemController {
 
-    private HashMap<Integer, Frete> listFreteRegular;
+    private HashMap<Integer, Frete> listFretes = new HashMap<Integer, Frete>();
+    private HashMap<Integer, Mercadoria> listMercadoria = new HashMap<Integer, Mercadoria>();
 
     private Gson gson = new Gson();
     private Connection con;
@@ -33,7 +34,7 @@ public class SistemController {
             ps.execute();
             ps.close();
 
-            carregaFrete(jsonFrete);
+            carregaFrete();
 
         } catch (Exception e) {
             System.out.println("erro ao salvar o frete no banco");
@@ -47,11 +48,10 @@ public class SistemController {
         try {
             PreparedStatement ps;
             ps = con.prepareStatement("insert into frete (json) values('" + jsonFrete + "')");
-            ResultSet resut = ps.executeQuery();
             ps.execute();
             ps.close();
 
-
+            carregaFrete();
         } catch (Exception e) {
             System.out.println("erro ao salvar o frete no banco");
         }
@@ -63,20 +63,25 @@ public class SistemController {
 
         try {
             PreparedStatement ps;
-            ps = con.prepareStatement("insert into mercadoria (json) values('" + jsonMercadoria + "')");
+            ps = con.prepareStatement("insert into mercadoria (mercadoria) values('" + jsonMercadoria + "')");
             ps.execute();
             ps.close();
+
+            carregaMercadoria();
 
         } catch (Exception e) {
             System.out.println("erro ao salvar a mercadoria no banco");
         }
     }
 
-    public void carregaFrete(JsonElement jsonFrete) {
+    public void carregaFrete() {
+        this.getListFretes().clear();
+        this.getListFretes().clear();
+
         con = Main.getDbManager().getConnection();
 
         try {
-            PreparedStatement ps = con.prepareStatement("select * from frete where frete =''" + jsonFrete + "'");
+            PreparedStatement ps = con.prepareStatement("select * from frete");
             ResultSet result = ps.executeQuery();
 
 
@@ -86,14 +91,40 @@ public class SistemController {
 
                     FreteRegular regular = gson.fromJson(result.getString("frete"), FreteRegular.class);
 
-                    listFreteRegular.put(result.getInt("id"), regular);
+                    listFretes.put(result.getInt("id"), regular);
 
                 } else {
                     FreteDemanda regular = gson.fromJson(result.getString("frete"), FreteDemanda.class);
 
-                    listFreteRegular.put(result.getInt("id"), regular);
+                    listFretes.put(result.getInt("id"), regular);
                 }
 
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("Erro ao carregar o frete!");
+        }
+    }
+
+
+    public void carregaMercadoria() {
+
+        this.getListMercadoria().clear();
+
+        con = Main.getDbManager().getConnection();
+
+        try {
+            PreparedStatement ps = con.prepareStatement("select * from mercadoria");
+            ResultSet result = ps.executeQuery();
+
+
+            while (result.next()) {
+                Mercadoria mercadoria = null;
+
+                mercadoria = gson.fromJson(result.getString("mercadoria"), Mercadoria.class);
+
+                listMercadoria.put(result.getInt("id"), mercadoria);
 
             }
 
@@ -102,9 +133,11 @@ public class SistemController {
         }
     }
 
-
-    public void carregaMercadoria(Integer id) {
-
+    public HashMap<Integer, Frete> getListFretes() {
+        return listFretes;
     }
 
+    public HashMap<Integer, Mercadoria> getListMercadoria() {
+        return listMercadoria;
+    }
 }
