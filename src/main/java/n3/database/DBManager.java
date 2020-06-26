@@ -83,7 +83,7 @@ public class DBManager {
     }
 
     private void criarTabelas() {
-        criarTabela("frete", "id int not null auto_increment primary key,frete json");
+        criarTabela("frete", "id int not null auto_increment primary key,tipoFrete int,frete json");
         criarTabela("mercadoria", "id int not null auto_increment primary key, mercadoria json");
     }
 }
