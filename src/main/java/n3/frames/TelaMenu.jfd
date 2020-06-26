@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.6" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.7" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -22,11 +22,13 @@ new FormModel {
 				name: "cad_produto"
 				"text": "Cadastrar Produto"
 				"foreground": &Color0 new java.awt.Color( 0, 0, 0, 255 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cadastrarProduto", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "cad_frete"
 				"text": "Cadastrar Frete"
 				"foreground": #Color0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "acessar_cadastroFrete", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "vincular_prod_frete"

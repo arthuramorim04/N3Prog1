@@ -6,7 +6,6 @@ package n3.frames;
 
 import java.awt.*;
 import javax.swing.*;
-import org.jdesktop.layout.GroupLayout;
 
 /**
  * @author unknown
@@ -18,7 +17,7 @@ public class ListarProdutos extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
+        // Generated using JFormDesigner Evaluation license - Gabriela da Rocha
 
         //======== this ========
         Container contentPane = getContentPane();
@@ -27,11 +26,11 @@ public class ListarProdutos extends JFrame {
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
-                .add(0, 400, Short.MAX_VALUE)
+                .addGap(0, 400, Short.MAX_VALUE)
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
-                .add(0, 300, Short.MAX_VALUE)
+                .addGap(0, 300, Short.MAX_VALUE)
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -39,6 +38,6 @@ public class ListarProdutos extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - Gabriela da Rocha
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

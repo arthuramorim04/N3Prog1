@@ -26,8 +26,6 @@ public class FreteManager {
         sc = new Scanner(System.in);
         System.out.println("\nTipo: ");
         tipo = sc.next();
-        System.out.println("\nID: ");
-        id = sc.nextInt();
         System.out.println("\nDescricao: ");
         descricao = sc.next();
         System.out.println("\nPeso em Kilos: ");
@@ -42,11 +40,11 @@ public class FreteManager {
             orgaoInspetor = sc.next();
             System.out.println("\nData Inspecao: ");
             dataInspecao = sc.next();
-            mercadoria = new Mercadoria(id, descricao, tipo, peso, nfs, auditado, orgaoInspetor, dataInspecao);
+            mercadoria = new Mercadoria( descricao, tipo, peso, nfs, auditado, orgaoInspetor, dataInspecao);
 
         } else {
             auditado = false;
-            mercadoria = new Mercadoria(id, descricao, tipo, peso, nfs, auditado);
+            mercadoria = new Mercadoria( descricao, tipo, peso, nfs, auditado);
 
         }
 

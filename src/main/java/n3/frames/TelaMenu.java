@@ -7,10 +7,8 @@ package n3.frames;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicOptionPaneUI;
 
-import org.jdesktop.layout.GroupLayout;
-import org.jdesktop.layout.LayoutStyle;
+
 
 /**
  * @author unknown
@@ -20,6 +18,16 @@ public class TelaMenu {
         initComponents();
     }
 
+    private void acessar_cadastroFrete(ActionEvent e) {
+        JFrame cadastrar_frete_tela = cadastrarFrete.getCadastrar_frete_tela();
+        cadastrar_frete_tela.setVisible(true);
+
+    }
+
+    private void cadastrarProduto(ActionEvent e) {
+        cadastrarProduto.getCadastro_produto().setVisible(true);
+    }
+
 
     CadastrarFrete cadastrarFrete = new CadastrarFrete();
     CadastrarProduto cadastrarProduto = new CadastrarProduto();
@@ -27,7 +35,7 @@ public class TelaMenu {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
+        // Generated using JFormDesigner Evaluation license - Gabriela da Rocha
         menuPrincipal = new JFrame();
         label_menu_principal = new JLabel();
         cad_produto = new JButton();
@@ -38,7 +46,7 @@ public class TelaMenu {
 
         //======== menuPrincipal ========
         {
-            menuPrincipal.setFont(new Font("Dialog", Font.PLAIN, 30));
+            menuPrincipal.setFont(new Font(Font.DIALOG, Font.PLAIN, 30));
             menuPrincipal.setBackground(Color.lightGray);
             menuPrincipal.setTitle("N3 -");
             menuPrincipal.setFocusableWindowState(false);
@@ -52,14 +60,20 @@ public class TelaMenu {
             //---- cad_produto ----
             cad_produto.setText("Cadastrar Produto");
             cad_produto.setForeground(Color.black);
+            cad_produto.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    cadastrarProduto(e);
+                }
+            });
 
             //---- cad_frete ----
             cad_frete.setText("Cadastrar Frete");
             cad_frete.setForeground(Color.black);
             cad_frete.addActionListener(new ActionListener() {
+                @Override
                 public void actionPerformed(ActionEvent e) {
-                    cadastrarFrete.getCadastrar_frete_tela().setVisible(true);
-                    cadastrarFrete.getCadastrar_frete_tela().setSize(460,600);
+                    acessar_cadastroFrete(e);
                 }
             });
 
@@ -79,41 +93,41 @@ public class TelaMenu {
             menuPrincipalContentPane.setLayout(menuPrincipalContentPaneLayout);
             menuPrincipalContentPaneLayout.setHorizontalGroup(
                 menuPrincipalContentPaneLayout.createParallelGroup()
-                    .add(menuPrincipalContentPaneLayout.createSequentialGroup()
-                        .add(32, 32, 32)
-                        .add(menuPrincipalContentPaneLayout.createParallelGroup(GroupLayout.LEADING, false)
-                            .add(menuPrincipalContentPaneLayout.createSequentialGroup()
-                                .add(cad_produto, GroupLayout.PREFERRED_SIZE, 169, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.UNRELATED)
-                                .add(cad_frete, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE))
-                            .add(vincular_prod_frete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .add(31, 31, 31)
-                        .add(menuPrincipalContentPaneLayout.createParallelGroup(GroupLayout.LEADING, false)
-                            .add(lista_fretes, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(lista_produtos, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menuPrincipalContentPaneLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(menuPrincipalContentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            .addGroup(menuPrincipalContentPaneLayout.createSequentialGroup()
+                                .addComponent(cad_produto, GroupLayout.PREFERRED_SIZE, 169, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cad_frete, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(vincular_prod_frete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
+                        .addGroup(menuPrincipalContentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lista_fretes, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lista_produtos, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(35, Short.MAX_VALUE))
-                    .add(GroupLayout.TRAILING, menuPrincipalContentPaneLayout.createSequentialGroup()
+                    .addGroup(GroupLayout.Alignment.TRAILING, menuPrincipalContentPaneLayout.createSequentialGroup()
                         .addContainerGap(256, Short.MAX_VALUE)
-                        .add(label_menu_principal)
-                        .add(231, 231, 231))
+                        .addComponent(label_menu_principal)
+                        .addGap(231, 231, 231))
             );
             menuPrincipalContentPaneLayout.setVerticalGroup(
                 menuPrincipalContentPaneLayout.createParallelGroup()
-                    .add(menuPrincipalContentPaneLayout.createSequentialGroup()
+                    .addGroup(menuPrincipalContentPaneLayout.createSequentialGroup()
                         .addContainerGap()
-                        .add(label_menu_principal)
-                        .addPreferredGap(LayoutStyle.UNRELATED)
-                        .add(menuPrincipalContentPaneLayout.createParallelGroup(GroupLayout.TRAILING)
-                            .add(menuPrincipalContentPaneLayout.createSequentialGroup()
-                                .add(menuPrincipalContentPaneLayout.createParallelGroup(GroupLayout.BASELINE)
-                                    .add(cad_frete, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-                                    .add(cad_produto, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.RELATED)
-                                .add(vincular_prod_frete, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
-                            .add(menuPrincipalContentPaneLayout.createSequentialGroup()
-                                .add(lista_produtos, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.RELATED)
-                                .add(lista_fretes, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(label_menu_principal)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(menuPrincipalContentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            .addGroup(menuPrincipalContentPaneLayout.createSequentialGroup()
+                                .addGroup(menuPrincipalContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cad_frete, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cad_produto, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(vincular_prod_frete, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
+                            .addGroup(menuPrincipalContentPaneLayout.createSequentialGroup()
+                                .addComponent(lista_produtos, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lista_fretes, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(31, Short.MAX_VALUE))
             );
             menuPrincipal.pack();
@@ -123,7 +137,7 @@ public class TelaMenu {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - Gabriela da Rocha
     private JFrame menuPrincipal;
     private JLabel label_menu_principal;
     private JButton cad_produto;
