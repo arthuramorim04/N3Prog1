@@ -33,7 +33,6 @@ public class CadastrarProduto {
             System.out.println(mercadoria.toString());
         }
 
-        getCadastro_produto().setTitle(getAuditado().getText());
     }
 
     private void botaoCancelar(ActionEvent e) {

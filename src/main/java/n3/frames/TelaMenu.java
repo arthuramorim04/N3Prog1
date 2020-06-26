@@ -4,6 +4,8 @@
 
 package n3.frames;
 
+import n3.Main;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -21,7 +23,6 @@ public class TelaMenu {
     private void acessar_cadastroFrete(ActionEvent e) {
         JFrame cadastrar_frete_tela = cadastrarFrete.getCadastrar_frete_tela();
         cadastrar_frete_tela.setVisible(true);
-
     }
 
     private void cadastrarProduto(ActionEvent e) {
@@ -29,18 +30,22 @@ public class TelaMenu {
     }
 
     private void vincular_prod_frete(ActionEvent e) {
-        //falta por as coisas do vinculo
+    }
+
+    private void abrirListaProdutos(ActionEvent e) {
+        listarProdutos.getFrame1().setVisible(true);
     }
 
 
     CadastrarFrete cadastrarFrete = new CadastrarFrete();
     CadastrarProduto cadastrarProduto = new CadastrarProduto();
+    ListarProdutos listarProdutos = new ListarProdutos();
 
 
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Gabriela da Rocha
+        // Generated using JFormDesigner Evaluation license - unknown
         menuPrincipal = new JFrame();
         label_menu_principal = new JLabel();
         cad_produto = new JButton();
@@ -148,7 +153,7 @@ public class TelaMenu {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Gabriela da Rocha
+    // Generated using JFormDesigner Evaluation license - unknown
     private JFrame menuPrincipal;
     private JLabel label_menu_principal;
     private JButton cad_produto;

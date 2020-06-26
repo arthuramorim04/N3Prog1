@@ -10,12 +10,11 @@ public abstract class Frete {
     private Integer id;
     private Double valor;
 
-    public Frete(String tipoFrete, String cidadeOrigem, String cidadeDestino, Double distancia, Integer id) {
+    public Frete(String tipoFrete, String cidadeOrigem, String cidadeDestino, Double distancia) {
         this.tipoFrete = tipoFrete;
         this.cidadeOrigem = cidadeOrigem;
         this.cidadeDestino = cidadeDestino;
         this.distancia = distancia;
-        this.id = id;
     }
 
     public String getTipoFrete() {

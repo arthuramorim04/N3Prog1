@@ -91,7 +91,7 @@ public class FreteManager {
             unidadeFrequencia = sc.next();
             tipoFrete = "Regular";
 
-            FreteRegular freteRegular = new FreteRegular(tipoFrete, cidadeOrigem, cidadeDestino, distancia, unidadeFrequencia, quantidadeOperacoes, frequenciaOperacoes, id);
+            FreteRegular freteRegular = new FreteRegular(tipoFrete, cidadeOrigem, cidadeDestino, distancia, unidadeFrequencia, quantidadeOperacoes, frequenciaOperacoes);
             listRegular.add(freteRegular);
         }
         if (opcFrete == 2) {
@@ -101,7 +101,7 @@ public class FreteManager {
             System.out.println("\nPrevisao Entrega: ");
             previsaoEntrega = sc.next();
             tipoFrete = "Demanda";
-            FreteDemanda freteDemanda = new FreteDemanda(tipoFrete, cidadeOrigem, cidadeDestino, distancia, dataPostagem, previsaoEntrega, id);
+            FreteDemanda freteDemanda = new FreteDemanda(tipoFrete, cidadeOrigem, cidadeDestino, distancia, dataPostagem, previsaoEntrega);
             listDemanda.add(freteDemanda);
         }
 
