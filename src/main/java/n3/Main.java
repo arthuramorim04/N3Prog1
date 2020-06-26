@@ -9,11 +9,17 @@ import javax.swing.*;
 public class Main {
 
     private static DBManager dbManager;
+    private static SistemController controller;
 
     public static void main(String[] args) throws Exception {
 
+        controller = new SistemController();
+
         dbManager = new DBManager("arthur","1234","localhost",3306,"n3");
         dbManager.openConnection();
+
+        controller.carregaFrete();
+        controller.carregaMercadoria();
 
         TelaMenu menu = new TelaMenu();
 
@@ -29,5 +35,9 @@ public class Main {
 
     public static DBManager getDbManager() {
         return dbManager;
+    }
+
+    public static SistemController getController() {
+        return controller;
     }
 }
