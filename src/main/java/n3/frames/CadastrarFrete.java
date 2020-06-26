@@ -4,7 +4,12 @@
 
 package n3.frames;
 
+import n3.Main;
+import n3.entity.FreteDemanda;
+import n3.entity.FreteRegular;
+
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 
@@ -15,6 +20,33 @@ public class CadastrarFrete {
     public CadastrarFrete() {
         initComponents();
     }
+
+    private void cadastrarFrete(ActionEvent e) {
+
+        if(!(getTipoFrete().getText().equalsIgnoreCase("sobDemanda"))){
+            double distancia = Double.parseDouble(getDistancia_em_km().getText());
+            Integer quantidadeOperacoes = Integer.parseInt(getQuantidade_operacoes().getText());
+            Integer frequenciaOperacoes = Integer.parseInt(getFrequencia_operacoes().getText());
+
+
+            FreteRegular freteRegular = new FreteRegular(getTipoFrete().getText(), getCidade_postagem().getText(), getCidade_destino().getText(), distancia,
+                    getUnidadeFrequencia().getText(), quantidadeOperacoes, frequenciaOperacoes);
+            Main.getController().salvarFrete(freteRegular);
+        } else {
+            double distancia = Double.parseDouble(getDistancia_em_km().getText());
+
+
+            FreteDemanda freteDemanda = new FreteDemanda(getTipoFrete().getText(), getCidade_postagem().getText(), getCidade_destino().getText(), distancia,
+                    getData_postagem().getText(), getPrevisao_entrega().getText());
+            Main.getController().salvarFrete(freteDemanda);
+        }
+
+    }
+
+    private void cancelar(ActionEvent e) {
+        this.getCadastrar_frete_tela().setVisible(false);
+    }
+
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -27,13 +59,12 @@ public class CadastrarFrete {
         label6 = new JLabel();
         label9 = new JLabel();
         label10 = new JLabel();
-        list_unidades_operacoes = new JComboBox();
         label13 = new JLabel();
         quantidade_operacoes = new JTextField();
         frequencia_operacoes = new JTextField();
+        unidadeFrequencia = new JTextField();
         informacoes_basicas_frete = new JPanel();
         label1 = new JLabel();
-        list_tipos_de_fretes = new JComboBox();
         label2 = new JLabel();
         label3 = new JLabel();
         label7 = new JLabel();
@@ -41,6 +72,9 @@ public class CadastrarFrete {
         cidade_postagem = new JTextField();
         distancia_em_km = new JTextField();
         label5 = new JLabel();
+        tipoFrete = new JTextField();
+        label4 = new JLabel();
+        label14 = new JLabel();
         frete_demanda = new JPanel();
         label8 = new JLabel();
         label11 = new JLabel();
@@ -70,16 +104,21 @@ public class CadastrarFrete {
 
             //---- cancelar ----
             cancelar.setText("Cancelar");
+            cancelar.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    cancelar(e);
+                }
+            });
 
             //======== panel1 ========
             {
-                panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing
-                .border.EmptyBorder(0,0,0,0), "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e",javax.swing.border.TitledBorder
-                .CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("D\u0069al\u006fg",java.
-                awt.Font.BOLD,12),java.awt.Color.red),panel1. getBorder()))
-                ;panel1. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-                ){if("\u0062or\u0064er".equals(e.getPropertyName()))throw new RuntimeException();}})
-                ;
+                panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder
+                ( 0, 0 ,0 , 0) ,  "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border
+                .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069al\u006fg", java .awt . Font. BOLD ,12 ) ,java . awt
+                . Color .red ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void
+                propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062or\u0064er" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
+                ;} } );
 
                 GroupLayout panel1Layout = new GroupLayout(panel1);
                 panel1.setLayout(panel1Layout);
@@ -115,20 +154,20 @@ public class CadastrarFrete {
                         .addGroup(frete_regularLayout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(frete_regularLayout.createParallelGroup()
-                                .addGroup(frete_regularLayout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addComponent(frequencia_operacoes, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE))
                                 .addGroup(frete_regularLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                     .addComponent(label9)
                                     .addComponent(label10)
                                     .addGroup(frete_regularLayout.createSequentialGroup()
                                         .addGap(6, 6, 6)
-                                        .addGroup(frete_regularLayout.createParallelGroup()
-                                            .addComponent(list_unidades_operacoes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(quantidade_operacoes)))
+                                        .addComponent(quantidade_operacoes))
                                     .addGroup(frete_regularLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                                         .addComponent(label13)
-                                        .addComponent(label6))))
+                                        .addComponent(label6)))
+                                .addGroup(frete_regularLayout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addGroup(frete_regularLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(frequencia_operacoes, GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                                        .addComponent(unidadeFrequencia, GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))))
                             .addContainerGap(72, Short.MAX_VALUE))
                 );
                 frete_regularLayout.setVerticalGroup(
@@ -146,9 +185,9 @@ public class CadastrarFrete {
                             .addComponent(frequencia_operacoes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addGap(4, 4, 4)
                             .addComponent(label10)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(list_unidades_operacoes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(28, Short.MAX_VALUE))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(unidadeFrequencia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(22, Short.MAX_VALUE))
                 );
             }
 
@@ -170,6 +209,12 @@ public class CadastrarFrete {
                 //---- label5 ----
                 label5.setText("Campos Basicos");
 
+                //---- label4 ----
+                label4.setText("- Regular");
+
+                //---- label14 ----
+                label14.setText("- sobDemanda");
+
                 GroupLayout informacoes_basicas_freteLayout = new GroupLayout(informacoes_basicas_frete);
                 informacoes_basicas_frete.setLayout(informacoes_basicas_freteLayout);
                 informacoes_basicas_freteLayout.setHorizontalGroup(
@@ -178,10 +223,12 @@ public class CadastrarFrete {
                             .addGroup(informacoes_basicas_freteLayout.createParallelGroup()
                                 .addGroup(informacoes_basicas_freteLayout.createSequentialGroup()
                                     .addGap(28, 28, 28)
-                                    .addGroup(informacoes_basicas_freteLayout.createParallelGroup()
+                                    .addGroup(informacoes_basicas_freteLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                         .addComponent(label1)
-                                        .addComponent(list_tipos_de_fretes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                    .addGap(26, 26, 26)
+                                        .addComponent(label14)
+                                        .addComponent(label4, GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                                        .addComponent(tipoFrete, GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
+                                    .addGap(28, 28, 28)
                                     .addGroup(informacoes_basicas_freteLayout.createParallelGroup()
                                         .addComponent(label3)
                                         .addComponent(cidade_destino, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
@@ -196,33 +243,36 @@ public class CadastrarFrete {
                                 .addGroup(informacoes_basicas_freteLayout.createSequentialGroup()
                                     .addGap(170, 170, 170)
                                     .addComponent(label5)))
-                            .addContainerGap(16, Short.MAX_VALUE))
+                            .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 informacoes_basicas_freteLayout.setVerticalGroup(
                     informacoes_basicas_freteLayout.createParallelGroup()
                         .addGroup(informacoes_basicas_freteLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(label5)
-                            .addGap(5, 5, 5)
+                            .addGap(15, 15, 15)
+                            .addGroup(informacoes_basicas_freteLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                .addGroup(informacoes_basicas_freteLayout.createSequentialGroup()
+                                    .addComponent(label1)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(label4)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(label14))
+                                .addGroup(informacoes_basicas_freteLayout.createSequentialGroup()
+                                    .addComponent(label2)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(cidade_postagem, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGroup(informacoes_basicas_freteLayout.createSequentialGroup()
+                                    .addComponent(label7)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(distancia_em_km, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(informacoes_basicas_freteLayout.createParallelGroup()
                                 .addGroup(informacoes_basicas_freteLayout.createSequentialGroup()
-                                    .addGroup(informacoes_basicas_freteLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                        .addGroup(informacoes_basicas_freteLayout.createSequentialGroup()
-                                            .addComponent(label2)
-                                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(cidade_postagem, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(informacoes_basicas_freteLayout.createSequentialGroup()
-                                            .addComponent(label7)
-                                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(distancia_em_km, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                                     .addComponent(label3)
                                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(cidade_destino, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                .addGroup(informacoes_basicas_freteLayout.createSequentialGroup()
-                                    .addComponent(label1)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(list_tipos_de_fretes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tipoFrete, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                             .addGap(7, 7, 7))
                 );
             }
@@ -273,6 +323,12 @@ public class CadastrarFrete {
 
             //---- cadastrar ----
             cadastrar.setText("Cadastrar");
+            cadastrar.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    cadastrarFrete(e);
+                }
+            });
 
             GroupLayout cadastrar_frete_telaContentPaneLayout = new GroupLayout(cadastrar_frete_telaContentPane);
             cadastrar_frete_telaContentPane.setLayout(cadastrar_frete_telaContentPaneLayout);
@@ -286,7 +342,7 @@ public class CadastrarFrete {
                     .addGroup(cadastrar_frete_telaContentPaneLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(cadastrar_frete_telaContentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(informacoes_basicas_frete, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(informacoes_basicas_frete, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 421, GroupLayout.PREFERRED_SIZE)
                             .addGroup(GroupLayout.Alignment.LEADING, cadastrar_frete_telaContentPaneLayout.createSequentialGroup()
                                 .addComponent(frete_regular, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -308,7 +364,7 @@ public class CadastrarFrete {
                                 .addGap(12, 12, 12)
                                 .addComponent(label_cadastro_frete, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(informacoes_basicas_frete, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(informacoes_basicas_frete, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(cadastrar_frete_telaContentPaneLayout.createParallelGroup()
                                     .addComponent(frete_regular, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -340,13 +396,12 @@ public class CadastrarFrete {
     private JLabel label6;
     private JLabel label9;
     private JLabel label10;
-    private JComboBox list_unidades_operacoes;
     private JLabel label13;
     private JTextField quantidade_operacoes;
     private JTextField frequencia_operacoes;
+    private JTextField unidadeFrequencia;
     private JPanel informacoes_basicas_frete;
     private JLabel label1;
-    private JComboBox list_tipos_de_fretes;
     private JLabel label2;
     private JLabel label3;
     private JLabel label7;
@@ -354,6 +409,9 @@ public class CadastrarFrete {
     private JTextField cidade_postagem;
     private JTextField distancia_em_km;
     private JLabel label5;
+    private JTextField tipoFrete;
+    private JLabel label4;
+    private JLabel label14;
     private JPanel frete_demanda;
     private JLabel label8;
     private JLabel label11;
@@ -364,4 +422,43 @@ public class CadastrarFrete {
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
 
+    public JLabel getLabel_cadastro_frete() {
+        return label_cadastro_frete;
+    }
+
+    public JTextField getQuantidade_operacoes() {
+        return quantidade_operacoes;
+    }
+
+    public JTextField getFrequencia_operacoes() {
+        return frequencia_operacoes;
+    }
+
+    public JTextField getUnidadeFrequencia() {
+        return unidadeFrequencia;
+    }
+
+    public JTextField getCidade_destino() {
+        return cidade_destino;
+    }
+
+    public JTextField getCidade_postagem() {
+        return cidade_postagem;
+    }
+
+    public JTextField getDistancia_em_km() {
+        return distancia_em_km;
+    }
+
+    public JTextField getTipoFrete() {
+        return tipoFrete;
+    }
+
+    public JTextField getData_postagem() {
+        return data_postagem;
+    }
+
+    public JTextField getPrevisao_entrega() {
+        return previsao_entrega;
+    }
 }

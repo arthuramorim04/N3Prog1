@@ -10,8 +10,8 @@ public class FreteRegular extends Frete implements InterfaceFrete {
 
 
     public FreteRegular(String tipoFrete, String cidadeOrigem, String cidadeDestino, Double distancia,
-                        String unidadeFrequencia,Integer quantidadeOperacoes, Integer frequenciaOperacoes,Integer id) {
-        super(tipoFrete, cidadeOrigem, cidadeDestino, distancia,id);
+                        String unidadeFrequencia,Integer quantidadeOperacoes, Integer frequenciaOperacoes) {
+        super(tipoFrete, cidadeOrigem, cidadeDestino, distancia);
         this.unidadeFrequencia = unidadeFrequencia;
         this.frequenciaOperacoes = frequenciaOperacoes;
         this.quantidadeOperacoes = quantidadeOperacoes;

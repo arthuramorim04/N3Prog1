@@ -8,8 +8,8 @@ public class FreteDemanda extends Frete implements InterfaceFrete {
     private String previsaoEntrega;
 
 
-    public FreteDemanda(String tipoFrete, String cidadeOrigem, String cidadeDestino, Double distancia, String dataPostagem,String previsaoEntrega,Integer id) {
-        super(tipoFrete, cidadeOrigem, cidadeDestino, distancia,id);
+    public FreteDemanda(String tipoFrete, String cidadeOrigem, String cidadeDestino, Double distancia, String dataPostagem,String previsaoEntrega) {
+        super(tipoFrete, cidadeOrigem, cidadeDestino, distancia);
         this.dataPostagem = dataPostagem;
         this.previsaoEntrega = previsaoEntrega;
         this.setValor(calculaFrete(distancia));

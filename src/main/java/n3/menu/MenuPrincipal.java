@@ -1,6 +1,6 @@
 package n3.menu;
 
-import n3.JsonController;
+
 import n3.entity.FreteDemanda;
 import n3.entity.FreteRegular;
 import n3.entity.Mercadoria;
@@ -28,7 +28,7 @@ public class MenuPrincipal {
 
         freteManager = new FreteManager();
 
-        JsonController.loadLists(listDemandaPrincipal, listRegularPrincipal, listMercadoriaPrincipal);
+        //JsonController.loadLists(listDemandaPrincipal, listRegularPrincipal, listMercadoriaPrincipal);
         boolean continuar = true;
         while (continuar) {
             System.out.println("\n" +
@@ -67,7 +67,7 @@ public class MenuPrincipal {
                     break;
                 }
                 case 0: {
-                    JsonController.saveLists(listDemandaPrincipal, listRegularPrincipal, listMercadoriaPrincipal);
+                    //JsonController.saveLists(listDemandaPrincipal, listRegularPrincipal, listMercadoriaPrincipal);
                     continuar = false;
                 }
 
