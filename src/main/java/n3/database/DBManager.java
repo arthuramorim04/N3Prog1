@@ -34,8 +34,8 @@ public class DBManager {
             if ((connection != null) && (!connection.isClosed()))
                 return;
 
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + db + "?useSSL=true", user, pass);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + db + "?useTimezone=true&serverTimezone=UTC&useSSL=false", user, pass);
             System.out.println("Conexao aberta com sucesso!");
         } catch (Exception e) {
             query--;
@@ -83,6 +83,7 @@ public class DBManager {
     }
 
     private void criarTabelas() {
-        criarTabela("neromissoes", "uuid varchar(255) primary key, name varchar(16) not null, missoes JSON");
+        criarTabela("frete", "id int not null auto_increment primary key,frete json");
+        criarTabela("mercadoria", "id int not null auto_increment primary key, mercadoria json");
     }
 }
