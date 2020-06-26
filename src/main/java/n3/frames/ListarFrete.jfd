@@ -1,16 +1,19 @@
-JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.7" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.6" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {space :0:400:x}"
-			"$verticalGroup": "par l {space :0:300:x}"
+			"$horizontalGroup": "par l {seq l {space :p:31:p, comp lista:::p:484:p, space ::28:x}}"
+			"$verticalGroup": "par l {seq l {space :p:47:p, comp lista:::p:147:p, space ::94:x}}"
 		} ) {
-			name: "this"
+			name: "frame1"
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "lista"
+			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 400, 300 )
+			"location": new java.awt.Point( 170, 85 )
+			"size": new java.awt.Dimension( 545, 320 )
 		} )
 	}
 }

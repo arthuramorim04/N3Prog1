@@ -4,6 +4,7 @@
 
 package n3.frames;
 
+import n3.Main;
 import n3.entity.Mercadoria;
 
 import java.awt.*;
@@ -23,14 +24,12 @@ public class CadastrarProduto {
         if(!(getAuditado().getText().equalsIgnoreCase("sim"))) {
 
             double peso = Double.parseDouble(getPeso().getText());
-
             Mercadoria mercadoria = new Mercadoria(getDescricao().getText(), getTipo().getText(), peso, getNfs().getText(), false);
-            System.out.println(mercadoria.toString());
-
+            Main.getController().salvaMercadoria(mercadoria);
         } else {
             double peso = Double.parseDouble(getPeso().getText());
             Mercadoria mercadoria = new Mercadoria(getDescricao().getText(), getTipo().getText(), peso, getNfs().getText(), true, getOrgaoInspetor().getText(), getDataInspecao().getText());
-            System.out.println(mercadoria.toString());
+            Main.getController().salvaMercadoria(mercadoria);
         }
 
     }

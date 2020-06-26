@@ -4,11 +4,10 @@
 
 package n3.frames;
 
-import n3.Main;
-
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 
@@ -32,7 +31,12 @@ public class TelaMenu {
     private void vincular_prod_frete(ActionEvent e) {
     }
 
-    private void abrirListaProdutos(ActionEvent e) {
+
+    private void abrir_lista_fretes(ActionEvent e) {
+        listarFrete.getFrame1().setVisible(true);
+    }
+
+    private void listarProdutos(ActionEvent e) {
         listarProdutos.getFrame1().setVisible(true);
     }
 
@@ -40,6 +44,7 @@ public class TelaMenu {
     CadastrarFrete cadastrarFrete = new CadastrarFrete();
     CadastrarProduto cadastrarProduto = new CadastrarProduto();
     ListarProdutos listarProdutos = new ListarProdutos();
+    ListarFrete listarFrete = new ListarFrete();
 
 
 
@@ -100,10 +105,22 @@ public class TelaMenu {
             //---- lista_produtos ----
             lista_produtos.setText("Listar Produtos");
             lista_produtos.setForeground(Color.black);
+            lista_produtos.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    listarProdutos(e);
+                }
+            });
 
             //---- lista_fretes ----
             lista_fretes.setText("Listar Fretes");
             lista_fretes.setForeground(Color.black);
+            lista_fretes.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    abrir_lista_fretes(e);
+                }
+            });
 
             GroupLayout menuPrincipalContentPaneLayout = new GroupLayout(menuPrincipalContentPane);
             menuPrincipalContentPane.setLayout(menuPrincipalContentPaneLayout);

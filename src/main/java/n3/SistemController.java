@@ -30,14 +30,14 @@ public class SistemController {
 
         try {
             PreparedStatement ps;
-            ps = con.prepareStatement("insert into frete (json) values('" + jsonFrete + "')");
+            ps = con.prepareStatement("insert into frete (frete,tipoFrete) values('" + jsonFrete + "',2)");
             ps.execute();
             ps.close();
 
             carregaFrete();
 
         } catch (Exception e) {
-            System.out.println("erro ao salvar o frete no banco");
+            System.out.println("erro ao salvar o frete demanda no banco");
         }
     }
 
@@ -47,13 +47,13 @@ public class SistemController {
 
         try {
             PreparedStatement ps;
-            ps = con.prepareStatement("insert into frete (json) values('" + jsonFrete + "')");
+            ps = con.prepareStatement("insert into frete (frete,tipoFrete) values('" + jsonFrete + "',1)");
             ps.execute();
             ps.close();
 
             carregaFrete();
         } catch (Exception e) {
-            System.out.println("erro ao salvar o frete no banco");
+            System.out.println("erro ao salvar o frete regular no banco");
         }
     }
 
