@@ -28,9 +28,14 @@ public class TelaMenu {
         cadastrarProduto.getCadastro_produto().setVisible(true);
     }
 
+    private void vincular_prod_frete(ActionEvent e) {
+        //falta por as coisas do vinculo
+    }
+
 
     CadastrarFrete cadastrarFrete = new CadastrarFrete();
     CadastrarProduto cadastrarProduto = new CadastrarProduto();
+
 
 
     private void initComponents() {
@@ -80,6 +85,12 @@ public class TelaMenu {
             //---- vincular_prod_frete ----
             vincular_prod_frete.setText("Vincular produto ao frete");
             vincular_prod_frete.setForeground(Color.black);
+            vincular_prod_frete.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    vincular_prod_frete(e);
+                }
+            });
 
             //---- lista_produtos ----
             lista_produtos.setText("Listar Produtos");

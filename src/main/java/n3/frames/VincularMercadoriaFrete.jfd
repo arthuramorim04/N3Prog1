@@ -4,13 +4,56 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {space :0:318:x}"
-			"$verticalGroup": "par l {space :0:323:x}"
+			"$horizontalGroup": "par l {seq l {space :p:36:p, par t:::p {seq {comp button2:::p::p, space :::x, comp button1:::p::p}, seq {par t {seq t {par l:::p {comp scrollPane1:::::x, comp label1::::125:x}, space :p:50:p}, seq l {par t {comp mercExcolhida::l:p:125:p, comp label3::l:p:107:p}, space :::x}}, par l {comp label2:::p:125:p, seq l {space :6:6:p, comp scrollPane2:::p:131:p}, par l:t {comp label4:::p::p, comp freteEscolhido:::p:125:p}}}}, space ::35:x}}"
+			"$verticalGroup": "par l {seq l {space :p:22:p, par b {comp label1::b:p::p, comp label2::b:p::p}, space u:::p, par l {comp scrollPane1:::p::p, comp scrollPane2:::p::p}, space s:::p, par l {comp label4:::p::p, comp label3::l:p::p}, space :::x, par b {comp mercExcolhida::b:p::p, comp freteEscolhido::b:p::p}, space s:::p, par b {comp button2::b:p::p, comp button1::b:p::p}, space :p:26:p}}"
 		} ) {
-			name: "frame1"
+			name: "vincularMercAoFrete"
+			"title": "Vincular Mercadoria ao Frete"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Lista de Mercadorias"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Lista de Fretes"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "listaMercadorias"
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane2"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "listaFretes"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Vincular"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "Cancelar"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "mercExcolhida"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "freteEscolhido"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Id da Mercadoria"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Id do Frete"
+			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 40, 25 )
-			"size": new java.awt.Dimension( 320, 355 )
+			"location": new java.awt.Point( 25, 10 )
+			"size": new java.awt.Dimension( 385, 380 )
 		} )
 	}
 }
